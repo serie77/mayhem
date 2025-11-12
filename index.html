@@ -4,29 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mayhem</title>
+    <link rel="icon" type="image/png" href="redpill.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="container">
         <!-- Initial green pill stage -->
         <div id="green-pill-stage" class="stage active">
+            <div class="click-indicator">
+                <div class="click-text">CLICK THE PILL</div>
+                <div class="click-arrow">↓</div>
+            </div>
             <img id="green-pill" src="greenpill.png" alt="Green Pill" class="pill floating">
         </div>
         
-        <!-- Red pill stage with enter button -->
+        <!-- Red pill stage with loading -->
         <div id="red-pill-stage" class="stage">
-            <img id="red-pill" src="redpill.png" alt="Red Pill" class="pill">
-            <div id="enter-button" class="enter-btn">ENTER</div>
+            <img id="red-pill" src="redpill.png" alt="Red Pill" class="pill floating">
+            <div id="loading-container" class="loading-container">
+                <div class="loading-bar">
+                    <div class="loading-fill"></div>
+                </div>
+                <div class="loading-text">LOADING...</div>
+            </div>
         </div>
         
         <!-- Final mayhem stage -->
         <div id="mayhem-stage" class="stage">
             <div id="top-bar">
-                <img id="top-red-pill" src="redpill.png" alt="Red Pill" class="top-pill">
-                <div id="twitter-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
-                    </svg>
+                <img id="top-red-pill" src="redpill.png" alt="Red Pill" class="top-pill spinning-pill">
+                <div class="social-icons">
+                    <div id="community-icon" class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="9" cy="9" r="2" fill="currentColor"/>
+                            <circle cx="15" cy="9" r="2" fill="currentColor"/>
+                            <path d="M7 15c0-1.5 2-3 5-3s5 1.5 5 3v2H7v-2z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div id="twitter-icon" class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
             <img id="mayhem-logo" src="mayhemtransparent.png" alt="Mayhem" class="mayhem-logo">
