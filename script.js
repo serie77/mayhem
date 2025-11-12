@@ -7,36 +7,17 @@ class MayhemSite {
 
     init() {
         this.setupEventListeners();
+        this.startAutoProgression();
     }
 
     setupEventListeners() {
-        const greenPill = document.getElementById('green-pill');
-        const enterButton = document.getElementById('enter-button');
         const twitterIcon = document.getElementById('twitter-icon');
         const caAddress = document.querySelector('.ca-address');
 
-        // Green pill click handler
-        greenPill.addEventListener('click', () => {
-            if (this.currentStage === 'green-pill') {
-                this.transformToRedPill();
-            }
-        });
-
-        // Auto-transition after loading completes (no enter button needed)
-        // The loading will automatically trigger the mayhem stage
-
         // Twitter icon click handler
         twitterIcon.addEventListener('click', () => {
-            window.open('https://x.com/mayhemsolana', '_blank');
+            window.open('https://twitter.com/i/communities/1988568188607479885', '_blank');
         });
-
-        // Community icon click handler
-        const communityIcon = document.getElementById('community-icon');
-        if (communityIcon) {
-            communityIcon.addEventListener('click', () => {
-                window.open('https://twitter.com/i/communities/1988568188607479885', '_blank');
-            });
-        }
 
         // CA address click handler (copy to clipboard)
         caAddress.addEventListener('click', () => {
@@ -47,6 +28,15 @@ class MayhemSite {
 
         // Mayhem logo hover handlers
         this.setupMayhemLogoHover();
+    }
+
+    startAutoProgression() {
+        // Auto-progress from green pill to red pill after 3 seconds
+        setTimeout(() => {
+            if (this.currentStage === 'green-pill') {
+                this.transformToRedPill();
+            }
+        }, 3000);
     }
 
     setupMayhemLogoHover() {
@@ -134,7 +124,7 @@ class MayhemSite {
         // Auto-transition to mayhem stage after loading animation completes
         setTimeout(() => {
             this.showMayhemStage();
-        }, 3500); // 3.5 seconds to allow loading animation to complete
+        }, 3400); // 3.4 seconds to allow loading animation to complete (3.2s + 0.2s buffer)
     }
 
     showMayhemStage() {

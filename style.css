@@ -99,57 +99,6 @@ body::after {
         radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.5) 0%, transparent 40%);
 }
 
-/* Click Indicator */
-.click-indicator {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    animation: pulseIndicator 2s ease-in-out infinite;
-}
-
-.click-text {
-    font-family: 'BadBoys', sans-serif;
-    font-size: 18px;
-    color: #00ff64;
-    text-shadow: 
-        1px 1px 0px #000000,
-        -1px -1px 0px #000000,
-        1px -1px 0px #000000,
-        -1px 1px 0px #000000,
-        0 0 10px rgba(0, 255, 100, 0.6);
-    -webkit-text-stroke: 0.5px #000000;
-    margin-bottom: 8px;
-    letter-spacing: 2px;
-}
-
-.click-arrow {
-    font-size: 24px;
-    color: #00ff64;
-    text-shadow: 0 0 10px rgba(0, 255, 100, 0.8);
-    animation: bounceArrow 1.5s ease-in-out infinite;
-}
-
-@keyframes pulseIndicator {
-    0%, 100% {
-        opacity: 0.7;
-        transform: translateX(-50%) scale(1);
-    }
-    50% {
-        opacity: 1;
-        transform: translateX(-50%) scale(1.05);
-    }
-}
-
-@keyframes bounceArrow {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(10px);
-    }
-}
 
 .pill {
     max-width: 200px;
@@ -172,15 +121,36 @@ body::after {
 
 /* Floating animation for green pill */
 .floating {
-    animation: float 3s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite, slowSpin 6s linear infinite;
 }
 
 @keyframes float {
     0%, 100% {
-        transform: translateY(0px);
+        transform: translateY(0px) rotate(var(--rotation, 0deg));
     }
     50% {
-        transform: translateY(-15px);
+        transform: translateY(-15px) rotate(var(--rotation, 0deg));
+    }
+}
+
+@keyframes slowSpin {
+    0% {
+        --rotation: 0deg;
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-7.5px) rotate(90deg);
+    }
+    50% {
+        --rotation: 180deg;
+        transform: translateY(-15px) rotate(180deg);
+    }
+    75% {
+        transform: translateY(-7.5px) rotate(270deg);
+    }
+    100% {
+        --rotation: 360deg;
+        transform: translateY(0px) rotate(360deg);
     }
 }
 
@@ -236,73 +206,7 @@ body::after {
     }
 }
 
-/* Loading Container */
-.loading-container {
-    position: absolute;
-    bottom: 30%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    width: 300px;
-}
 
-.loading-bar {
-    width: 100%;
-    height: 8px;
-    background: rgba(0, 0, 0, 0.6);
-    border: 2px solid rgba(255, 0, 50, 0.3);
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 
-        inset 0 0 10px rgba(0, 0, 0, 0.8),
-        0 0 15px rgba(255, 0, 50, 0.2);
-}
-
-.loading-fill {
-    height: 100%;
-    background: linear-gradient(90deg, 
-        #ff0032 0%, 
-        #ff4500 50%, 
-        #ff0032 100%);
-    width: 0%;
-    animation: loadingProgress 3s ease-in-out forwards;
-    box-shadow: 0 0 10px rgba(255, 0, 50, 0.6);
-}
-
-.loading-text {
-    font-family: 'BadBoys', sans-serif;
-    font-size: 16px;
-    color: #ff4500;
-    margin-top: 15px;
-    text-shadow: 
-        1px 1px 0px #000000,
-        -1px -1px 0px #000000,
-        1px -1px 0px #000000,
-        -1px 1px 0px #000000,
-        0 0 8px rgba(255, 69, 0, 0.5);
-    -webkit-text-stroke: 0.5px #000000;
-    letter-spacing: 3px;
-    animation: pulseText 1.5s ease-in-out infinite;
-}
-
-@keyframes loadingProgress {
-    0% {
-        width: 0%;
-    }
-    100% {
-        width: 100%;
-    }
-}
-
-@keyframes pulseText {
-    0%, 100% {
-        opacity: 0.7;
-    }
-    50% {
-        opacity: 1;
-    }
-}
 
 /* Mayhem Stage */
 #mayhem-stage {
