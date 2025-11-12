@@ -74,6 +74,7 @@ class MayhemSite {
             
             // Remove green theme classes
             mayhemStage.classList.remove('green-theme');
+            mayhemLogo.classList.remove('green-theme');
             caDisplay.classList.remove('green-theme');
             caLabel.classList.remove('green-theme');
             caAddress.classList.remove('green-theme');
@@ -87,6 +88,7 @@ class MayhemSite {
             
             // Add green theme classes
             mayhemStage.classList.add('green-theme');
+            mayhemLogo.classList.add('green-theme');
             caDisplay.classList.add('green-theme');
             caLabel.classList.add('green-theme');
             caAddress.classList.add('green-theme');
