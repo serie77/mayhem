@@ -21,7 +21,7 @@ class MayhemSite {
 
         // CA address click handler (copy to clipboard)
         caAddress.addEventListener('click', () => {
-            navigator.clipboard.writeText('xxxxxxxxxxxxxxxxxxxxxxxxxpump').then(() => {
+            navigator.clipboard.writeText('GuLD5tZCgutf8Si3jewitkn9fjqhAcnuwFx17DNhRJcS').then(() => {
                 this.showCopyFeedback();
             });
         });
